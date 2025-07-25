@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Book</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- header  -->
+    <header>
+        <div class="container">
+            <h1>Recipe Book</h1>
+            <div class="search-container">
+                <input type="search" id="search-bar" placeholder="Search recipes...">
+            </div>
+            <button id="add-recipe-btn" class="btn-primary">+ Add Recipe</button>
+        </div>
+    </header>
+     <!-- main -->
+    <main>
+        <div class="container">
+            <div id="recipe-grid"></div>
+        </div>
+    </main>
+     <!-- add recipe -->
+    <div id="recipe-form-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <button class="close-modal-btn">&times;</button>
+            <h2 id="form-title">Add New Recipe</h2>
+            <form id="recipe-form">
+                <input type="hidden" id="recipe-id">
+                <div class="form-group"><input type="text" id="title" required placeholder="Recipe Title"></div>
+                <div class="form-group"><input type="number" id="cook-time" required placeholder="Cook Time (minutes)"></div>
+                <div class="form-group"><input type="text" id="image-url" placeholder="Image URL (optional)"></div>
+                <div class="form-group"><textarea id="instructions" rows="8" required placeholder="Instructions..."></textarea></div>
+                <button type="submit" class="btn-primary">Save Recipe</button>
+            </form>
+        </div>
+    </div>
+     <!-- recipe detail -->
+    <div id="recipe-detail-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <button class="close-modal-btn">&times;</button>
+            <div id="detail-view-content">
+                <img id="detail-image" src="" alt="Recipe Image">
+                <h2 id="detail-title"></h2>
+                <p class="cook-time-p"><strong>Cook Time:</strong> <span id="detail-cook-time"></span> minutes</p>
+                <div class="detail-section">
+                    <div class="section-header">
+                        <h3>Instructions</h3>
+                        <button id="edit-instructions-btn" class="btn-icon">Edit</button>
+                    </div>
+                    <div id="instructions-display" class="prose"></div>
+                    <div id="instructions-edit" class="hidden">
+                        <textarea id="instructions-textarea" rows="10"></textarea>
+                        <button id="save-instructions-btn" class="btn-primary">Save Instructions</button>
+                    </div>
+                </div>
+                <hr>
+                <div class="detail-section">
+                    <h3>Ingredients</h3>
+                    <ul id="detail-ingredients-list"></ul>
+                    <form id="ingredient-form">
+                        <h4>Add Ingredient</h4>
+                        <div class="ingredient-form-inputs">
+                            <input type="text" id="ingredient-name" placeholder="Ingredient Name" required>
+                            <input type="text" id="ingredient-quantity" placeholder="Quantity" required>
+                            <button type="submit" class="btn-primary">Add</button>
+                        </div>
+                    </form>
+                </div>
+                <hr>
+                <div class="detail-section">
+                    <h3>Tips & Notes</h3>
+                    <ul id="detail-tips-list"></ul>
+                    <form id="tip-form">
+                        <h4>Add a Tip</h4>
+                        <div class="tip-form-inputs">
+                            <input type="text" id="tip-text" placeholder="Share a cooking tip..." required>
+                            <button type="submit" class="btn-primary">Add Tip</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="detail-section" style="margin-top: 30px;">
+                    <button id="delete-recipe-btn" class="btn-danger">Delete This Recipe</button>
+                </div>
+            </div>
+        </div>
+    </div>
+     <!-- recipe delete -->
+    <div id="confirm-delete-modal" class="modal-overlay hidden">
+        <div class="modal-content small-modal">
+            <h3>Are you sure?</h3>
+            <p>This action cannot be undone. The recipe will be permanently deleted.</p>
+            <div class="modal-actions">
+                <button id="cancel-delete-btn" class="btn-secondary">Cancel</button>
+                <button id="confirm-delete-btn" class="btn-danger">Yes, Delete</button>
+            </div>
+        </div>
+    </div>
+    <!-- notification toast -->
+    <div id="notification-toast" class="hidden"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sql.js@1.10.3/dist/sql-wasm.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
