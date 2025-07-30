@@ -39,7 +39,7 @@ header .container {
   margin: 0 40px;
 }
 #search-bar {
-  min-width:120px;
+  min-width:80px;
   width: 100%;
   background: rgba(255, 255, 255, 0.15);
   border: 1px solid rgba(255, 255, 255, 0.2);
