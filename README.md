@@ -29,4 +29,4 @@ Live Demo - (https://tanmayr0x.github.io/Recipe-Book/)
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/recipe-book.git
+   git clone https://github.com/TanmayR0X/recipe-book.git
