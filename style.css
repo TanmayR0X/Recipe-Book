@@ -39,7 +39,6 @@ header .container {
   margin: 0 40px;
 }
 #search-bar {
-  min-width:80px;
   width: 100%;
   background: rgba(255, 255, 255, 0.15);
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -51,6 +50,13 @@ header .container {
 }
 #search-bar::placeholder {
   color: rgba(255, 255, 255, 0.7);
+}
+
+@media screen and (max-width:600px) {
+ #search-bar {
+  min-width:100ox;
+   padding:12px 10px;
+ }
 }
 #search-bar:focus {
   outline: none;
